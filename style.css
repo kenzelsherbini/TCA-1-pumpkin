@@ -1,3 +1,4 @@
+/* Full viewport background with radial gradient for ambiance */
 html,
 body {
     width: 100%;
@@ -8,23 +9,29 @@ body {
     align-items: center;
     overflow: hidden;
 }
+
+/* Container to center the pumpkin vertically and horizontally */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
+/* Main pumpkin body styling */
 .pumpkin {
     height: 11em;
     width: 15em;
-    background: #f54ca9;
-    border: 0.4em solid #fe67ba;
-    border-radius: 70%/110%;
+    background: #f54ca9; /* Pumpkin color */
+    border: 0.4em solid #fe67ba; /* Pumpkin border */
+    border-radius: 70%/110%; /* Rounded shape */
     position: relative;
-    box-shadow: inset 0 0px 20px #fa03d1, 0 0 30px -4px rgb(255, 0, 187);
+    box-shadow: inset 0 0px 20px #fa03d1, 0 0 30px -4px rgb(255, 0, 187); /* Inner and outer glow */
     z-index: 1;
-    animation: float 3s infinite;
+    animation: float 3s infinite; /* Floating animation */
 }
+
+/* Pumpkin vertical line texture */
 .pumpkin .texture {
     height: 10.8em;
     width: 6.5em;
@@ -32,10 +39,12 @@ body {
     bottom: -0.4em;
     left: 4em;
     border-radius: 70%/130%;
-    border-bottom: 0.5em solid #a10770;
-    border-top: 0.5em solid #fe67ba;
-  }
-  .pumpkin .texture:after {
+    border-bottom: 0.5em solid #a10770; /* Bottom line color */
+    border-top: 0.5em solid #fe67ba; /* Top line color */
+}
+
+/* Additional line texture mirroring the first */
+.pumpkin .texture:after {
     content: "";
     display: block;
     height: 10.7em;
@@ -46,54 +55,70 @@ body {
     border-radius: 70%/130%;
     border-bottom: 0.5em solid #a10770;
     border-top: 0.5em solid #fe67ba;
-  }
-  .pumpkin .root {
-    background: #517f54;
+}
+
+/* Stem styling at the top of the pumpkin */
+.pumpkin .root {
+    background: #517f54; /* Stem color */
     height: 2.8em;
     width: 1.25em;
     position: absolute;
     left: calc(7.5em - 0.625em);
     top: -2.7em;
-    transform: rotate(5deg);
-    border-radius: 30% 20% 70% 10%;
+    transform: rotate(5deg); /* Slight tilt */
+    border-radius: 30% 20% 70% 10%; /* Stem shape */
     z-index: -1;
-    box-shadow: inset 0 0px 10px #29412b;
-  }
-  .pumpkin .eye {
+    box-shadow: inset 0 0px 10px #29412b; /* Stem shadow */
+}
+
+/* Eye styling */
+.pumpkin .eye {
     position: absolute;
     width: 0;
     height: 0;
     border-top: 0.8em solid transparent;
     top: 2.8em;
-  }
-  .pumpkin .eye.right {
+}
+
+/* Right eye specific styling */
+.pumpkin .eye.right {
     right: 3.7em;
-    transform: rotate(30deg);
+    transform: rotate(30deg); /* Eye angle */
     border-bottom: 2.1em solid transparent;
-    border-left: 2.4em solid #401d03;
-  }
-  .pumpkin .eye.left {
+    border-left: 2.4em solid #401d03; /* Eye color */
+}
+
+/* Left eye specific styling */
+.pumpkin .eye.left {
     left: 3.7em;
-    transform: rotate(-30deg);
+    transform: rotate(-30deg); /* Eye angle */
     border-bottom: 2.1em solid transparent;
     border-right: 2.4em solid #401d03;
-  }
-  .pumpkin .mouth {
+}
+
+/* Mouth styling */
+.pumpkin .mouth {
     width: 4em;
     height: 2em;
     position: absolute;
     bottom: 1.5em;
-    border-bottom: 1em solid #401d03;
-  }
-  .pumpkin .mouth.right {
+    border-bottom: 1em solid #401d03; /* Mouth color */
+}
+
+/* Right side of the mouth */
+.pumpkin .mouth.right {
     right: 3.6em;
-    border-radius: 0 0 100% 0;
-  }
-  .pumpkin .mouth.left {
+    border-radius: 0 0 100% 0; /* Rounded bottom-right */
+}
+
+/* Left side of the mouth */
+.pumpkin .mouth.left {
     left: 3.6em;
-    border-radius: 0 0 0 100%;
-  }
-  .pumpkin .teeth {
+    border-radius: 0 0 0 100%; /* Rounded bottom-left */
+}
+
+/* Tooth positioned at the top of the mouth */
+.pumpkin .teeth {
     width: 0.5em;
     height: 1em;
     position: absolute;
@@ -101,51 +126,63 @@ body {
     left: 7.25em;
     border-top: 0.8em solid transparent;
     border-bottom: 0em solid transparent;
-    border-left: 0.8em solid #401d03;
-  }
-  .pumpkin .teeth:before, .pumpkin .teeth:after {
+    border-left: 0.8em solid #401d03; /* Tooth color */
+}
+
+/* Left and right additional teeth */
+.pumpkin .teeth:before, .pumpkin .teeth:after {
     content: "";
     display: block;
     position: absolute;
     width: 0;
     height: 0;
     border-top: 0.8em solid transparent;
-  }
-  .pumpkin .teeth:before {
+}
+
+/* Positioning for left additional tooth */
+.pumpkin .teeth:before {
     right: 2.2em;
     top: -0.65em;
     transform: rotate(30deg);
     border-bottom: 0.5em solid transparent;
     border-left: 1em solid #401d03;
-  }
-  .pumpkin .teeth:after {
+}
+
+/* Positioning for right additional tooth */
+.pumpkin .teeth:after {
     left: 1em;
     top: -0.85em;
     transform: rotate(30deg);
     border-bottom: 0.5em solid transparent;
     border-left: 1em solid #401d03;
-  }
- .shadow {
+}
+
+/* Shadow effect underneath the pumpkin */
+.shadow {
     margin: 10% auto 0;
     background: #000;
     width: 230px;
     height: 50px;
-    border-radius: 50%;
-    animation: zoom 3s infinite;
-  }
-  @keyframes float {
+    border-radius: 50%; /* Rounded shadow */
+    animation: zoom 3s infinite; /* Zoom effect */
+}
+
+/* Float animation keyframes for the pumpkin */
+@keyframes float {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-10%);
     }
-  }
-  @keyframes zoom {
-      0%, 100% {
-          transform: scale(1);
-      }
-      50% {
-          transform: scale(0.8);
-      }
-  }
+}
+
+/* Zoom animation keyframes for the shadow */
+@keyframes zoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+}
